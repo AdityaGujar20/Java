@@ -16,7 +16,7 @@ public class AlphabetWarGame {
         this.leftSideStrength['s' - 'a'] = 1; 
 
         
-        this.rightSideStrength['m' - 'a'] = 4; 
+        this.rightSideStrength['m' - 'a'] = 4;
         this.rightSideStrength['q' - 'a'] = 3; 
         this.rightSideStrength['d' - 'a'] = 2; 
         this.rightSideStrength['z' - 'a'] = 1; 
