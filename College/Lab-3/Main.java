@@ -146,4 +146,26 @@ class ExecutiveEmployee extends SalariedEmployee {
     }
 }
 
+// Main class to test the Employee classes
+public class Main {
+    public static void main(String[] args) {
+        // Create an HourlyEmployee instance
+        HourlyEmployee hourlyEmployee = new HourlyEmployee(1, "Aditya", "Technician", 20.0, 40);
+        System.out.println("Hourly Employee Information:");
+        hourlyEmployee.displayEmployeeInfo();
+        
+        System.out.println();
 
+        // Create a SalariedEmployee instance
+        SalariedEmployee salariedEmployee = new SalariedEmployee(2, "Rhea", "Manager", 4000.0);
+        System.out.println("Salaried Employee Information:");
+        salariedEmployee.displayEmployeeInfo();
+        
+        System.out.println();
+
+        // Create an ExecutiveEmployee instance
+        ExecutiveEmployee executiveEmployee = new ExecutiveEmployee(3, "Radha", "Executive", 8000.0, 15.0);
+        System.out.println("Executive Employee Information:");
+        executiveEmployee.displayEmployeeInfo();
+    }
+}
