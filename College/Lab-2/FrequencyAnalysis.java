@@ -58,6 +58,6 @@ public class FrequencyAnalysis {
 
         numbersArray = new int[]{7, 10, 11, 5, 2, 5, 5, 7, 11, 8, 9};
         K = 4;
-        findTopKNumbers(K); 
+        findTopKNumbers(K);
     }
 }
