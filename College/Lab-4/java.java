@@ -10,7 +10,7 @@ abstract class Robber {
     abstract int robSquareHouse(int[] houseMoneyGrid);
     abstract int robMultiHouseBuilding(int[][] buildingMoney);
     public void displayPassion() {
-        System.out.println("I Love Machine Learning"); 
+        System.out.println("I Love Machine Learning");
     }
 }
 
