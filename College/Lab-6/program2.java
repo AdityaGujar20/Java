@@ -5,43 +5,43 @@ class CounterEmptyException extends Exception {
 }
 
 class CoffeeShop {
-    private final String[] counter = new String[3]; // Counter can hold max 3 coffees
-    private int count = 0; // Current number of coffees in the counter
+    private final String[] counter = new String[3]; 
+    private int count = 0; 
 
     public synchronized void prepareCoffee(String baristaName) throws InterruptedException {
-        while (count == counter.length) { // Wait if counter is full
+        while (count == counter.length) { 
             System.out.println(baristaName + " is waiting. Counter is full.");
             wait();
         }
         counter[count] = "Coffee from " + baristaName;
         count++;
         System.out.println(baristaName + " prepared coffee. (Counter: " + count + ")");
-        notifyAll(); // Notify all waiting threads
+        notifyAll(); 
     }
 
     public synchronized String pickUpCoffee(String customerName) throws InterruptedException, CounterEmptyException {
-        while (count == 0) { // Wait if counter is empty
+        while (count == 0) { 
             System.out.println(customerName + " is waiting. Counter is empty.");
             wait();
         }
-        String coffee = counter[count - 1]; // Pick the last coffee
-        counter[count - 1] = null; // Clear the slot
+        String coffee = counter[count - 1]; 
+        counter[count - 1] = null;
         count--;
         System.out.println(customerName + " picked up coffee. (Counter: " + count + ")");
-        notifyAll(); // Notify all waiting threads
+        notifyAll();
         return coffee;
     }
 
     public synchronized String sampleCoffee(String reviewerName) throws InterruptedException, CounterEmptyException {
-        while (count == 0) { // Wait if counter is empty
+        while (count == 0) {
             System.out.println(reviewerName + " is waiting. Counter is empty.");
             wait();
         }
-        String coffee = counter[count - 1]; // Sample the last coffee
-        counter[count - 1] = null; // Clear the slot
+        String coffee = counter[count - 1];
+        counter[count - 1] = null;
         count--;
         System.out.println(reviewerName + " sampled coffee. (Counter: " + count + ")");
-        notifyAll(); // Notify all waiting threads
+        notifyAll();
         return coffee;
     }
 }
@@ -62,7 +62,7 @@ class Barista extends Thread {
         try {
             for (int i = 0; i < coffeesToPrepare; i++) {
                 coffeeShop.prepareCoffee(name);
-                Thread.sleep(1000); // Simulate coffee preparation time
+                Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -86,7 +86,7 @@ class Customer extends Thread {
         try {
             for (int i = 0; i < coffeesToPick; i++) {
                 coffeeShop.pickUpCoffee(name);
-                Thread.sleep(500); // Simulate pickup time
+                Thread.sleep(500);
             }
         } catch (InterruptedException | CounterEmptyException e) {
             e.printStackTrace();
