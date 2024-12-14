@@ -25,7 +25,7 @@ class JAVAProfessionalRobber extends Robber {
         maxMoney[1] = Math.max(houseMoney[0], houseMoney[1]);
         for (int i = 2; i < houseCount; i++) {
             maxMoney[i] = Math.max(maxMoney[i - 1], maxMoney[i - 2] + houseMoney[i]);
-        }
+        }   
         return maxMoney[houseCount - 1];
     }
 
@@ -40,7 +40,7 @@ class JAVAProfessionalRobber extends Robber {
     }
 
     @Override
-    public int robSquareHouse(int[] houseMoneyGrid) {        
+    public int robSquareHouse(int[] houseMoneyGrid) {
         int evenSum = 0;
         int oddSum = 0;
         for (int i = 0; i < houseMoneyGrid.length; i++) {
@@ -78,7 +78,6 @@ class Lab4 {
         JAVAProfessionalRobber robber = new JAVAProfessionalRobber();
         robber.displayClassName();
         
-        // RowHouses Example
         int[] rowHouseMoney = {2, 4, 5, 6};
         System.out.println("Row Houses Maximum: " + robber.robRowHouses(rowHouseMoney));
         

@@ -39,7 +39,7 @@ public class WaterConservation {
     }
 
     public static void main(String[] args) {
-        int[] blockHeights = {3, 0, 2, 0, 6};
+        int[] blockHeights = {3, 0, 2, 0, 4};
 
         UrbanWaterConservation waterConservationSystem = new UrbanWaterConservation();
 
